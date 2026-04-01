@@ -16,6 +16,7 @@ and this project adheres to
 - ♿(frontend) use aria-haspopup menu on DropButton triggers #2126
 - ♿️(frontend) add contextual browser tab titles for docs routes #2120
 - ♿️(frontend) fix empty heading before section titles in HTML export #2125
+- 💄(frontend) Use StyledLink for sub doc tree #2100
 
 ### Fixed
 

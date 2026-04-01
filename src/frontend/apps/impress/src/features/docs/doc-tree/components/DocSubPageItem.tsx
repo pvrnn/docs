@@ -11,7 +11,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { css } from 'styled-components';
 
-import { Box, BoxButton, Icon, Text } from '@/components';
+import { Box, Icon, StyledLink, Text } from '@/components';
 import { useCunninghamTheme } from '@/cunningham';
 import {
   Doc,
@@ -279,27 +279,25 @@ const DocSubPageItemContent = (props: TreeViewNodeProps<Doc>) => {
             buttonOptionRef={buttonOptionRef}
           />
         </Box>
-        <BoxButton
+        <StyledLink
+          href={`/docs/${doc.id}`}
           onClick={(e) => {
             e.stopPropagation();
+            e.preventDefault();
             handleActivate();
           }}
           tabIndex={-1}
-          $width="100%"
-          $direction="row"
-          $gap={spacingsTokens['xs']}
-          $align="center"
-          $minHeight="24px"
           data-testid={`doc-sub-page-item-${doc.id}`}
           aria-label={`${t('Open document {{title}}', { title: docTitle })}`}
           $css={css`
-            text-align: left;
-            min-width: 0;
+              width: 100%;
           `}
         >
           <Box
             $direction="row"
             $align="center"
+            $gap={spacingsTokens['xs']}
+            $minHeight="24px"
             $css={css`
               display: flex;
               flex-direction: row;
@@ -322,7 +320,7 @@ const DocSubPageItemContent = (props: TreeViewNodeProps<Doc>) => {
               />
             )}
           </Box>
-        </BoxButton>
+        </StyledLink>
       </TreeViewItem>
     </Box>
   );
